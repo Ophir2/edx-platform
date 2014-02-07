@@ -47,7 +47,7 @@ Feature: LMS.Video component
     And error message has correct text
 
   # 8
-  Scenario: Video component stores speed correctly when each video is in separate sequence.
+  Scenario: Video component stores speed correctly when each video is in separate sequence
     Given I am registered for the course "test_course"
     And it has a video "A" in "Youtube" mode in position "1" of sequential
     And a video "B" in "Youtube" mode in position "2" of sequential
