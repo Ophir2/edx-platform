@@ -137,6 +137,7 @@ class StubLtiHandler(StubHttpRequestHandler):
         else:
             submit_form = ''
 
+        # Show roles only for LTI launch.
         if self.post_dict.get('roles'):
             role = '<h5>Role: {}</h5>'.format(self.post_dict['roles'])
         else:
