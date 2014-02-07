@@ -185,6 +185,6 @@ def start_playing_video_from_n_seconds(_step, seconds):
 @step('I seek video to "([^"]*)" seconds$')
 def seek_video_to_n_seconds(_step, seconds):
     time = float(seconds.strip())
-    jsCode = "$('.video').data('video-player-state').videoPlayer.onSlideSeek({time: %f})" % time
+    jsCode = "$('.video').data('video-player-state').videoPlayer.onSlideSeek({{time: {0:f}}})".format(time)
     world.browser.execute_script(jsCode)
 
