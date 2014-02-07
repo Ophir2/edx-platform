@@ -198,3 +198,21 @@ def click_button_video(_step, button_type):
     button = button_type.strip()
     world.css_click(VIDEO_BUTTONS[button])
 
+
+@step('I seek video to "([^"]*)" seconds$')
+def seek_video_to_n_seconds(_step, seconds):
+    time = float(seconds.strip())
+    jsCode = "$('.video').data('video-player-state').videoPlayer.onSlideSeek({{time: {0:f}}})".format(time)
+    world.browser.execute_script(jsCode)
+
+
+@step('I see video starts playing from "([^"]*)" seconds$')
+def start_playing_video_from_n_seconds(_step, seconds):
+    # TODO: Use `seconds` argument.
+    # TODO: Check only against the first part of vidtime string (from the
+    #       beginning to the character "/"). It is better than determining the
+    #       length of the video. Right now "0:16", and "0:17" are
+    #       hard coded, so the test will break if the default video will be
+    #       changed.
+    world.wait_for(lambda _: world.css_html('.vidtime')[:4] == '0:16' or world.css_html('.vidtime')[:4] == '0:17')
+

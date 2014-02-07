@@ -176,7 +176,7 @@ def start_playing_video_from_n_seconds(_step, seconds):
     # TODO: Use `seconds` argument.
     # TODO: Check only against the first part of vidtime string (from the
     #       beginning to the character "/"). It is better than determining the
-    #       length of the video. Right now "0:10 / 1:55", and "0:11 / 1:55" are
+    #       length of the video. Right now "0:10", and "0:11" are
     #       hard coded, so the test will break if the default video will be
     #       changed.
     world.wait_for(lambda _: world.css_html('.vidtime')[:4] == '0:10' or world.css_html('.vidtime')[:4] == '0:11')
